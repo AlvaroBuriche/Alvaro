@@ -1,135 +1,82 @@
 <!doctype html>
-
- <html lang="en">
-
- <head>
-
- <!-- Required meta tags -->
-
- <meta charset="utf-8">
-
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-
-<!-- Bootstrap CSS -->
-
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-
-
-<title>Cálculo de média</title>
-
-
-
-
-
-
- </head>
-
- <body>
-
-
- <!-- crie um formulário para ler duas notas, calcular a média e exibir o resultado
-
- utilize java.
-
- -->
-
-
-
-<div class="container">
-
- <form>
-
- <div class="form-group">
-
- <label for="idnota1">Digite nota 1</label>
-
- <input type="number" class="form-control" id="idnota1"
-
- name="nota1" min="0" max="10" value="9" >
-
- </div>
-
- <div class="form-group">
-
- <label for="idnota2">Digite nota 2</label>
-
- <input type="number" class="form-control" id="idnota2" name="nota2" min="0" max="10" value="2">
-
- </div>
-
-
- <button class="btn btn-primary"
-
- onclick="exibeTexto()" >
-
- Calcular Média
-
- </button>
-
- </form>
-
- </div>
-
-
-
-
-
- < s c r i p t >
-
- var n=0;
-
-
-
-function calcularMedia(nota1, nota2) {​​
-
- var media= ( parseFloat(nota1)+parseFloat(nota2) ) / 2;
-
- return media;
-
- }​​
-
-
-
-function exibeTexto(){​​
-
- var nota1 = document.getElementById("idnota1").value;
-
- var nota2 = document.getElementById("idnota2").value;
-
-
- alert("Media = "+calcularMedia(nota1, nota2));
-
-
- // document.getElementById("resultado").innerHTML="Media = "+calcularMedia(nota1, nota2);
-
-
- }​​
-
-
-
-</s c r i p t>
-
-
-
-
-
- </div> <!-- fim de conatiner -->
-
-
-
-<!-- Optional Java -->
-
- <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
- < src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></>
-
- < src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></>
-
- < src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></>
-
- </body>
-
- </html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Calculadora</title>
+  </head>
+  <body>
+
+  <div class="container">
+    <h1>Calculadora</h1>
+    
+  <div class="form-group">
+    <label for="idvalor1">Valor 1</label>
+    <input type="number" class="form-control" id="idvalor1" value="80">
+  </div>
+  <div class="form-group">
+    <label for="idvalor2">Valor 2</label>
+    <input type="number" class="form-control" id="idvalor2" value="90">
+  </div>
+
+  <div>
+    <button type="button" class="btn btn-primary" onclick="soma()">Soma</button>
+    <button type="button" class="btn btn-secondary"  onclick="subtracao()">Subtracao</button>
+    <button type="button" class="btn btn-success">Multiplicação</button>
+    <button type="button" class="btn btn-danger">Divisão</button>
+  </div>
+<br>
+  <div class="form-group">
+    <label for="idresultado">Resultado</label>
+    <textarea class="form-control" id="idresultado" 
+    rows="3"> teste de texto </textarea>
+  </div>
+ 
+  <h1 id="resultadoDiv">
+    
+    vai morrer dentro da div
+
+  </h1>
+  </div><!-- fim de container -->
+
+  <script>
+    function soma() {
+      var v1 = document.getElementById("idvalor1").value;
+      var v2 = document.getElementById("idvalor2").value;
+      var soma=parseFloat(v1)+parseFloat(v2);
+      
+      document.getElementById("resultadoDiv").innerHTML = soma;
+
+      document.getElementById("idresultado").value=soma;
+
+      alert("funcao soma = v1->"+v1+" v2->"+v2+" =="+soma );
+    }
+
+    function subtracao() {
+      
+      var v1 = document.getElementById("idvalor1").value;
+      var v2 = document.getElementById("idvalor2").value;
+      
+      var resultado=(parseFloat(v1)-parseFloat(v2)) * 100;
+      
+      document.getElementById("resultadoDiv").innerHTML = resultado;
+
+      document.getElementById("idresultado").value=resultado;
+      
+      alert("funcao soma = v1->"+v1+" v2->"+v2+" =="+resultado );
+    }
+
+  </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
